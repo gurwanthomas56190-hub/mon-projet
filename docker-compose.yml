@@ -1,0 +1,44 @@
+services:
+  # Le moteur PHP (ton application Laravel)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel-app
+    volumes:
+      - .:/var/www/html
+    networks:
+      - laravel-network
+
+  # Le serveur Web (Nginx)
+  web:
+    image: nginx:alpine
+    container_name: laravel-web
+    ports:
+      - "8080:80" # On utilise le port 8080 pour éviter les conflits
+    volumes:
+      - .:/var/www/html
+      - ./docker/docker_nginx.conf:/etc/nginx/conf.d/default.conf # Ton fichier de config
+    depends_on:
+      - app
+    networks:
+      - laravel-network
+
+  # La base de données
+  db:
+    image: mariadb:10.6
+    container_name: laravel-db
+    environment:
+      MYSQL_DATABASE: laravel_db
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
+
+volumes:
+  db_data:

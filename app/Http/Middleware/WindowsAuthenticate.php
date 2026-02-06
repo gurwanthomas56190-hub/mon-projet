@@ -16,7 +16,7 @@ class WindowsAuthenticate
         if (!Auth::check()) {
             // Simulation du GUID envoyé par Apache (à remplacer par $request->server('REMOTE_USER'))
             $guid = $request->server('REMOTE_USER') ?? 'GUID-TEST-123';
-            dump('test1');
+            
             dd($request->server('REMOTE_USER'));
 
             if ($guid) {
@@ -27,7 +27,7 @@ class WindowsAuthenticate
                     'email'  => 'j.dupont@silvadec.com',
                     'service'=> 'Informatique'
                 ];
-                dump('test2');
+                
 
                 // 1. On gère le service
                 $service = Service::firstOrCreate(['name' => $infoAD['service']]);

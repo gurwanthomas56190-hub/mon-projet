@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         // On utilise \App\Models\User pour forcer le bon chemin
-        $users = \App\Models\User::with('service')->orderBy('last_name')->get();
+        $users = \App\Models\User::with('service')->orderBy('name')->get();
 
         return view('annuaire.index', compact('users'));
     }

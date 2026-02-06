@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BonjourController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TaskController;
 
-// Page d'accueil dynamique
+// Cette ligne est celle qui te manque pour l'accueil
 Route::get('/', [BonjourController::class, 'index'])->name('home');
 
-// Tes autres routes existantes
+// Ta route pour l'annuaire
 Route::get('/utilisateurs', [UserController::class, 'index'])->name('annuaire.index');
-Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');

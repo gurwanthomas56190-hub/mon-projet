@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// ⚠️ Très important : on doit "importer" le contrôleur pour que Laravel le trouve
+use App\Http\Controllers\BonjourController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\WindowsAuthenticate;
-// L'annuaire sera accessible sur /utilisateurs
-Route::get('/utilisateurs', [UserController::class, 'index'])
-    ->middleware(WindowsAuthenticate::class)
-    ->name('annuaire.index');
+use App\Http\Controllers\TaskController;
+
+// Page d'accueil dynamique
+Route::get('/', [BonjourController::class, 'index'])->name('home');
+
+// Tes autres routes existantes
+Route::get('/utilisateurs', [UserController::class, 'index'])->name('annuaire.index');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');

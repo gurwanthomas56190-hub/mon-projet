@@ -17,7 +17,7 @@ class WindowsAuthenticate
             // Simulation du GUID envoyé par Apache (à remplacer par $request->server('REMOTE_USER'))
             $guid = $request->server('REMOTE_USER') ?? 'GUID-TEST-123';
             
-            dd($request->server('REMOTE_USER'));
+            //dd($request->server('REMOTE_USER'));
 
             if ($guid) {
                 // Simulation des infos que l'on recevra de l'AD

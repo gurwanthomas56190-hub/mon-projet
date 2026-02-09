@@ -9,3 +9,58 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* --- Vos styles personnalisés --- */
+
+/* Style de la banderole immobile */
+.banderole {
+    position: fixed;    /* Fixe la banderole en haut */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1a202c; /* Couleur sombre */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.banderole h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Ajustement du corps pour ne pas cacher le contenu sous la banderole */
+body {
+    padding-top: 80px; /* Espace équivalent à la hauteur de la banderole */
+    font-family: var(--font-sans);
+    background-color: #f3f4f6;
+}
+
+/* Style simple pour centrer le tableau */
+.conteneur {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style du tableau pour qu'il soit plus joli */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background-color: #f8fafc;
+    font-weight: 600;
+}
